@@ -22,8 +22,13 @@ public class Processing {
       String name = scanner.next();
       System.out.print(name + "の点数を入力してください: ");
       int score = scanner.nextInt();
-      studentList.add(new Student(name, score));
-      System.out.println("追加が完了しました。");
+      if (score >= 0) {
+        studentList.add(new Student(name, score));
+        System.out.println("追加が完了しました。");
+      } else {
+        System.out.println("無効な値が入力されました。");
+        System.out.println("もう一度やり直してください。");
+      }
     } catch (InputMismatchException e) {
       System.out.println("無効な値が入力されました。");
       System.out.println("もう一度やり直してください。");
