@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Processing {
 
-  public List<Student> studentList;
+  private List<Student> studentList;
   Scanner scanner = new Scanner(System.in);
 
   public Processing(List<Student> studentList) {
@@ -16,7 +16,7 @@ public class Processing {
   }
 
   // 1. 学生を追加
-  public void addStudent() {
+  private void addStudent() {
     try {
       System.out.print("追加する学生の名前を入力してください: ");
       String name = scanner.next();
@@ -36,7 +36,7 @@ public class Processing {
   }
 
   // 2. 学生を削除
-  public void removeStudent() {
+  private void removeStudent() {
     System.out.print("削除する学生の名前を入力してください: ");
     String name = scanner.next();
     // allMatchだと空のリストに対してtrueを返してしまうためnoneMatchを使用。
@@ -53,7 +53,7 @@ public class Processing {
   }
 
   // 3. 点数を更新
-  public void updateScore() {
+  private void updateScore() {
     try {
       System.out.print("点数を更新する学生の名前を入力してください: ");
       String name = scanner.next();
@@ -79,14 +79,14 @@ public class Processing {
   }
 
   // 4. 平均点を計算
-  public void showAverageScore(){
+  private void showAverageScore(){
     Double averageScore = studentList.stream()
         .collect(Collectors.averagingDouble(Student::getScore));
     System.out.printf("平均点 : %.1f 点%n", averageScore);
   }
 
   // 5. 全学生の情報を表示
-  public void showAllScore() {
+  private void showAllScore() {
     System.out.println("学生一覧 :");
     studentList.forEach(Student::detailScore);
   }
